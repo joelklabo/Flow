@@ -39,8 +39,33 @@ class CounterView: UIView {
         
         // 6
         path.lineWidth = arcWidth
+        path.lineCapStyle = kCGLineCapButt
         counterColor.setStroke()
         path.stroke()
+        
+        // Draw the outline
+        
+        // 1 - First calculate the difference between the two angles
+        // ensuring it is positive
+        let angleDifference: CGFloat = 2 * π - startAngle + endAngle
+        
+        // then calculate the arc for each single class
+        let arcLengthPerGlass = angleDifference / CGFloat(NoOfGlasses)
+        
+        let outlineEndAngle = arcLengthPerGlass * CGFloat(counter) + startAngle
+        
+        // draw the outer arc
+        var outlinePath = UIBezierPath(arcCenter: center, radius: bounds.width/2 - 2.5, startAngle: startAngle, endAngle: outlineEndAngle, clockwise: true)
+        
+        // draw the inner arc
+        outlinePath.addArcWithCenter(center, radius: bounds.width/2 - arcWidth + 2.5, startAngle: outlineEndAngle, endAngle: startAngle, clockwise: false)
+        
+        // close the path
+        outlinePath.closePath()
+        
+        outlineColor.setStroke()
+        outlinePath.lineWidth = 5.0
+        outlinePath.stroke()
         
     }
 
