@@ -31,6 +31,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isAddButton" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnPushButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZnB-v8-oa5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2IC-9v-l5N" customClass="PushButtonView" customModule="Flow" customModuleProvider="target">
                                 <rect key="frame" x="275" y="480" width="55" height="55"/>
@@ -47,6 +50,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isAddButton" value="NO"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnPushButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="glP-Rc-vQz"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yAP-JT-bvf" customClass="CounterView" customModule="Flow" customModuleProvider="target">
                                 <rect key="frame" x="185" y="70" width="230" height="230"/>
@@ -67,6 +73,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knk-5l-qFY">
+                                <rect key="frame" x="278" y="162" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="5OB-ej-ip8"/>
+                                    <constraint firstAttribute="width" constant="44" id="JCv-Zn-uK2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -74,10 +90,16 @@
                             <constraint firstAttribute="centerX" secondItem="Fgi-Db-lki" secondAttribute="centerX" id="Q3n-2A-5qx"/>
                             <constraint firstAttribute="centerY" secondItem="2IC-9v-l5N" secondAttribute="centerY" constant="-205" id="XdM-oS-TIk"/>
                             <constraint firstAttribute="centerX" secondItem="yAP-JT-bvf" secondAttribute="centerX" id="a0o-HU-vEA"/>
+                            <constraint firstItem="yAP-JT-bvf" firstAttribute="centerX" secondItem="knk-5l-qFY" secondAttribute="centerX" id="fdm-dg-5WN"/>
                             <constraint firstAttribute="centerX" secondItem="2IC-9v-l5N" secondAttribute="centerX" id="p0U-KX-OR3"/>
                             <constraint firstAttribute="centerY" secondItem="yAP-JT-bvf" secondAttribute="centerY" constant="115" id="pj7-xR-38p"/>
+                            <constraint firstItem="yAP-JT-bvf" firstAttribute="centerY" secondItem="knk-5l-qFY" secondAttribute="centerY" constant="1" id="ubB-ja-QBs"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="counterLabel" destination="knk-5l-qFY" id="cdq-rZ-DXY"/>
+                        <outlet property="counterView" destination="yAP-JT-bvf" id="CeD-iQ-zuF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
